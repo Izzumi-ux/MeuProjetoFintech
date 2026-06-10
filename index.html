@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FinControl</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+tailwind.config = {
+    darkMode: 'class'
+}
+</script>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-900 transition-all duration-300">
+
+<div class="flex flex-col md:flex-row min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="bg-red-900 text-white w-full md:w-72 p-6 flex flex-col justify-between">
+
+        <div>
+
+            <div class="mb-12">
+                <h1 class="text-4xl font-bold">
+                    ★ FinControl
+                </h1>
+
+                <p class="text-red-100 mt-2">
+                    Controle inteligente de gastos
+                </p>
+            </div>
+
+            <nav>
+                <ul class="space-y-4">
+
+                    <li>
+                        <a href="#" class="menu-link bg-red-800">
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Registrar Gasto
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Categorias
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Relatórios
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Alertas
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="perfil-box">
+
+            <div class="w-12 h-12 bg-white rounded-full"></div>
+
+            <div>
+                <h3 class="font-semibold">
+                    Usuário
+                </h3>
+
+                <p class="text-sm text-red-200">
+                    Ver perfil
+                </p>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="flex-1 p-6 relative overflow-hidden text-black dark:text-white">
+
+        <!-- Estrela de fundo -->
+        <div class="estrela-fundo">
+            ★ 
+        </div>
+
+        <!-- Topo -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 relative z-10">
+
+            <div>
+                <h2 class="text-5xl font-bold">
+                    Olá, Usuário!
+                </h2>
+
+                <p class="text-gray-500 mt-2">
+                    Aqui está o resumo das suas finanças
+                </p>
+            </div>
+
+            <div class="flex gap-4">
+
+    <div class="bg-white dark:bg-slate-800 rounded-xl shadow p-4 flex items-center gap-3">
+        <span class="text-3xl">🔔</span>
+
+        <div>
+            <h3 class="font-bold dark:text-white">
+                Alertas e Notificações
+            </h3>
+
+            <p class="text-gray-500">
+                3 novos avisos
+            </p>
+        </div>
+    </div>
+
+    <button
+        onclick="trocarTema()"
+        class="bg-white dark:bg-slate-800 dark:text-white rounded-xl shadow px-5 py-4">
+        🌙
+    </button>
+
+</div>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 relative z-10">
+
+            <div class="card dark:bg-slate-800">
+                <h3>Total Gasto no Mês</h3>
+                <p class="valor text-red-700">R$ 1.570,00</p>
+            </div>
+
+            <div class="card dark:bg-slate-800">
+                <h3>Limite Mensal</h3>
+                <p class="valor text-red-700">R$ 2.000,00</p>
+            </div>
+
+            <div class="card dark:bg-slate-800">
+                <h3>Disponível</h3>
+                <p class="valor text-green-600">R$ 430,00</p>
+            </div>
+
+        </div>
+
+        <!-- Alerta + Dica -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 relative z-10">
+
+            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6">
+
+                <h3 class="text-red-700 font-bold text-xl">
+                    ⚠️ Atenção!
+                </h3>
+
+                <p class="mt-2">
+                    Você já utilizou 78% do seu orçamento mensal.
+                </p>
+
+            </div>
+
+            <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-6">
+
+                <h3 class="text-green-700 font-bold text-xl">
+                    💡 Dica Inteligente
+                </h3>
+
+                <p class="mt-2">
+                    Reduzindo gastos com delivery você pode economizar até R$1.200 por ano.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Categorias + Tabela -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8 relative z-10">
+
+            <div class="card">
+
+                <h3 class="titulo-card">
+                    Gastos por Categoria
+                </h3>
+
+                <div class="space-y-6 mt-6">
+
+                    <div>
+                        <div class="flex justify-between">
+                            <span>Alimentação</span>
+                            <span>R$850</span>
+                        </div>
+
+                        <div class="barra">
+                            <div class="barra-vermelha w-[54%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between">
+                            <span>Transporte</span>
+                            <span>R$420</span>
+                        </div>
+
+                        <div class="barra">
+                            <div class="barra-amarela w-[27%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between">
+                            <span>Lazer</span>
+                            <span>R$300</span>
+                        </div>
+
+                        <div class="barra">
+                            <div class="barra-verde w-[19%]"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="flex justify-between mb-4">
+
+                    <h3 class="titulo-card">
+                        Últimos Gastos
+                    </h3>
+
+                    <a href="#" class="text-red-700">
+                        Ver todos
+                    </a>
+
+                </div>
+
+                <table class="w-full">
+
+                    <tbody>
+
+                        <tr class="linha">
+                            <td>iFood</td>
+                            <td>Alimentação</td>
+                            <td>R$52,90</td>
+                        </tr>
+
+                        <tr class="linha">
+                            <td>Uber</td>
+                            <td>Transporte</td>
+                            <td>R$18,50</td>
+                        </tr>
+
+                        <tr class="linha">
+                            <td>Cinema</td>
+                            <td>Lazer</td>
+                            <td>R$35,00</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Meta -->
+        <div class="card relative z-10">
+
+            <h3 class="titulo-card">
+                Meta do mês
+            </h3>
+
+            <p class="mb-4">
+                Você ainda pode gastar R$430,00 para ficar dentro do limite.
+            </p>
+
+            <div class="barra">
+                <div class="barra-vermelha w-[78%]"></div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!--Parte Javascript-->
+<script>
+function trocarTema() {
+
+    document.documentElement.classList.toggle('dark');
+
+    if(document.documentElement.classList.contains('dark')){
+        localStorage.setItem('tema','dark');
+    } else {
+        localStorage.setItem('tema','light');
+    }
+}
+
+if(localStorage.getItem('tema') === 'dark'){
+    document.documentElement.classList.add('dark');
+}
+</script>
+
+</body>
+</html>
